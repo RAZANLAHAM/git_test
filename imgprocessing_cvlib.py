@@ -7,7 +7,8 @@ import cv2
 # IMREAD_UNCHANGED(-1)
 
 #  load the image --> imread()
-image = cv2.imread("imgprocessing_test.png",-1)
+path = "imgprocessing_test.png"
+image = cv2.imread(path,-1)
 image_1 = cv2.imread("img.jpg",0)
 
 # get the dim (height,width,chann)
@@ -36,6 +37,9 @@ print("size after cropp ",imgCropped.shape)
 cv2.imwrite("resized.png",imageResized)
 cv2.imwrite("cropped.png",imgCropped)
 
+# to convert between many systems(RGB , GRAY ,BGR ...)
+grayimg = cv2.cvtColor(image,cv2.COLOR_Luv2RGB)                           # -->IMPORTANT
+cv2.imshow("gray",grayimg)
 
 #  wait for the user to press key
 cv2.waitKey(0)
